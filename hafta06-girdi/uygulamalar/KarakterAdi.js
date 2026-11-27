@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Pressable } from 'react-native';
 
 export default function KarakterAdi() {
     const [isim, setIsim] = useState('');
@@ -25,9 +25,15 @@ export default function KarakterAdi() {
             <View style={styles.kart}>
                 <Text style={styles.kartIkon}>🧙</Text>
                 <Text style={styles.kartIsim}>
-                    {isim.length > 0 ? isim : 'Adsız Kahraman'}
+                    {isim.length > 0 ? isim.toUpperCase() : 'Adsız Kahraman'}
                 </Text>
                 <Text style={styles.kartAlt}>Seviye 1 · Çaylak</Text>
+                <Pressable
+                    onPress={() => setIsim('')}
+                    style={({ pressed }) => [styles.temizle, pressed && { opacity: 0.6 }]}
+                >
+                    <Text style={styles.temizleYazi}>Temizle</Text>
+                </Pressable>
             </View>
         </View>
     );
@@ -49,4 +55,6 @@ const styles = StyleSheet.create({
     kartIkon: { fontSize: 48 },
     kartIsim: { fontSize: 26, fontWeight: 'bold', color: 'white', marginTop: 8 },
     kartAlt: { fontSize: 14, color: '#9fb6d4', marginTop: 4 },
+    temizle: { alignSelf: 'flex-start', backgroundColor: '#c9372c', paddingVertical: 8, paddingHorizontal: 16, borderRadius: 8, marginTop: 8 },
+    temizleYazi: { color: 'white', fontWeight: 'bold' },
 });
