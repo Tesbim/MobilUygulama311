@@ -1,5 +1,12 @@
 import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
-
+function StatKarti({ deger, baslik, renk }) {
+  return (
+      <View style={[styles.kart, { borderLeftColor: renk }]}>
+        <Text style={styles.kartDeger}>{deger}</Text>
+        <Text style={styles.kartBaslik}>{baslik}</Text>
+      </View>
+  );
+}
 export default function App() {
   return (
       <ScrollView style={styles.ekran}>
@@ -14,6 +21,13 @@ export default function App() {
             <Text style={styles.altYazi}>Bugün de oynayalım mı?</Text>
           </View>
         </View>
+        {/* 2. İstatistik kartları */}
+        <View style={styles.kartlar}>
+          <StatKarti deger="1.250" baslik="Puan" renk="#2f6fed" />
+          <StatKarti deger="48" baslik="Galibiyet" renk="#22a06b" />
+          <StatKarti deger="320" baslik="Altın" renk="#e2a400" />
+          <StatKarti deger="12" baslik="Rozet" renk="#c9372c" />
+        </View>
       </ScrollView>
   );
 }
@@ -24,4 +38,15 @@ const styles = StyleSheet.create({
   avatar: { width: 56, height: 56, borderRadius: 28, marginRight: 12 },
   selam: { fontSize: 22, fontWeight: 'bold' },
   altYazi: { fontSize: 14, color: 'gray' },
+  kartlar: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' },
+  kart: {
+    width: '48%',
+    backgroundColor: 'white',
+    padding: 16,
+    borderRadius: 12,
+    borderLeftWidth: 5,
+    marginBottom: 12,
+  },
+  kartDeger: { fontSize: 24, fontWeight: 'bold' },
+  kartBaslik: { fontSize: 14, color: 'gray', marginTop: 4 },
 });
