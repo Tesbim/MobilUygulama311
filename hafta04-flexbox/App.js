@@ -25,6 +25,10 @@ export default function App() {
             <Text style={styles.deger}>30</Text>
             <Text>Hız</Text>
           </View>
+          <View style={styles.kutu}>
+            <Text style={styles.deger}>60</Text>
+            <Text>Zeka</Text>
+          </View>
         </View>
 
         {/* Alt kısım: açıklama */}
