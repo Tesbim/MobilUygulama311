@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { StyleSheet, ScrollView, View, Text, TextInput, Pressable } from 'react-native';
 
-const siniflar = ['Savaşçı', 'Büyücü', 'Okçu'];
+const siniflar = ['Savaşçı', 'Büyücü', 'Okçu', 'Şifacı'];
 
+// Kendin dene — sınıfa göre simge
+const simgeler = { Savaşçı: '⚔️', Büyücü: '🔮', Okçu: '🏹', Şifacı: '💚' };
 export default function KarakterFormu() {
     const [isim, setIsim] = useState('');
     const [yas, setYas] = useState('');
@@ -33,6 +35,7 @@ export default function KarakterFormu() {
         return (
             <View style={styles.kartEkran}>
                 <View style={styles.kart}>
+                    <Text style={styles.kartSimge}>{simgeler[sinif]}</Text>
                     <Text style={styles.kartIsim}>{isim}</Text>
                     <Text style={styles.kartBilgi}>{sinif} · {yas} yaşında</Text>
                     <Text style={styles.kartBilgi}>Seviye 1 — Macera başlıyor!</Text>
@@ -127,4 +130,5 @@ const styles = StyleSheet.create({
     kart: { backgroundColor: '#1c2b45', borderRadius: 16, padding: 28, alignItems: 'center' },
     kartIsim: { color: 'white', fontSize: 30, fontWeight: 'bold' },
     kartBilgi: { color: '#9fb6d4', fontSize: 16, marginTop: 6 },
+    kartSimge: { fontSize: 56, marginBottom: 8 },
 });
