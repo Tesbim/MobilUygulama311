@@ -20,6 +20,12 @@ export default function KarakterAdi() {
             <Text style={[styles.sayac, isim.length >= 10 && { color: 'orange', fontWeight: 'bold' }]}>
                 {isim.length} / 12
             </Text>
+            <Pressable
+                onPress={() => setIsim('')}
+                style={({ pressed }) => [styles.temizle, pressed && { opacity: 0.6 }]}
+            >
+                <Text style={styles.temizleYazi}>Temizle</Text>
+            </Pressable>
 
             {/* Adım 4 — Canlı karakter kartı */}
             <View style={styles.kart}>
@@ -28,12 +34,7 @@ export default function KarakterAdi() {
                     {isim.length > 0 ? isim.toUpperCase() : 'Adsız Kahraman'}
                 </Text>
                 <Text style={styles.kartAlt}>Seviye 1 · Çaylak</Text>
-                <Pressable
-                    onPress={() => setIsim('')}
-                    style={({ pressed }) => [styles.temizle, pressed && { opacity: 0.6 }]}
-                >
-                    <Text style={styles.temizleYazi}>Temizle</Text>
-                </Pressable>
+
             </View>
         </View>
     );
