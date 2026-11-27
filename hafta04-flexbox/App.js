@@ -4,10 +4,10 @@ export default function App() {
   return (
       <ScrollView contentContainerStyle={styles.ekran}>
         {/* Üst kısım: görsel ve isim */}
-        <Image
-            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-            style={styles.avatar}
-        />
+          <Image
+              source={require('./assets/karakter.png')}
+              style={styles.avatar}
+          />
         <Text style={styles.isim}>Kahraman Kaan</Text>
         <Text style={styles.sinif}>Seviye 7 · Savaşçı</Text>
 
