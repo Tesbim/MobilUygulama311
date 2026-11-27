@@ -1,4 +1,9 @@
 import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
+const etkinlikler = [
+  { id: 1, metin: 'Boss savaşını kazandın', zaman: '2 saat önce' },
+  { id: 2, metin: 'Yeni rozet: Hız Ustası', zaman: 'Dün' },
+  { id: 3, metin: '3. seviyeyi bitirdin', zaman: '2 gün önce' },
+];
 function StatKarti({ deger, baslik, renk }) {
   return (
       <View style={[styles.kart, { borderLeftColor: renk }]}>
@@ -38,6 +43,16 @@ export default function App() {
             <View style={[styles.cubukIc, { width: '65%' }]} />
           </View>
         </View>
+        {/* 4. Son etkinlikler */}
+        <View style={styles.bolum}>
+          <Text style={styles.bolumBaslik}>Son Etkinlikler</Text>
+          {etkinlikler.map((e) => (
+              <View key={e.id} style={styles.etkinlik}>
+                <Text>• {e.metin}</Text>
+                <Text style={styles.zaman}>{e.zaman}</Text>
+              </View>
+          ))}
+        </View>
       </ScrollView>
   );
 }
@@ -66,4 +81,14 @@ const styles = StyleSheet.create({
   yuzde: { fontSize: 16, color: '#2f6fed', fontWeight: 'bold' },
   cubukDis: { height: 12, backgroundColor: '#e3e7f0', borderRadius: 6 },
   cubukIc: { height: 12, backgroundColor: '#2f6fed', borderRadius: 6 },
+
+  etkinlik: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  zaman: { fontSize: 12, color: 'gray' },
+
 });
