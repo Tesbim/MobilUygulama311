@@ -3,6 +3,8 @@ const etkinlikler = [
   { id: 1, metin: 'Boss savaşını kazandın', zaman: '2 saat önce' },
   { id: 2, metin: 'Yeni rozet: Hız Ustası', zaman: 'Dün' },
   { id: 3, metin: '3. seviyeyi bitirdin', zaman: '2 gün önce' },
+  { id: 4, metin: 'Günlük görevi tamamladın', zaman: '3 gün önce' },
+  { id: 5, metin: '500 altın topladın', zaman: 'Geçen hafta' },
 ];
 function StatKarti({ deger, baslik, renk }) {
   return (
@@ -88,6 +90,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
+
   },
   zaman: { fontSize: 12, color: 'gray' },
 
