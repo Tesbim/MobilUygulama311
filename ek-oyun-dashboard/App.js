@@ -6,6 +6,12 @@ const etkinlikler = [
   { id: 4, metin: 'Günlük görevi tamamladın', zaman: '3 gün önce' },
   { id: 5, metin: '500 altın topladın', zaman: 'Geçen hafta' },
 ];
+const kartlar = [
+  { baslik: 'Puan', deger: '2.480', renk: '#7c3aed' },
+  { baslik: 'Galibiyet', deger: '63', renk: '#0ea5e9' },
+  { baslik: 'Altın', deger: '940', renk: '#f59e0b' },
+  { baslik: 'Rozet', deger: '17', renk: '#ec4899' },
+];
 function StatKarti({ deger, baslik, renk }) {
   return (
       <View style={[styles.kart, { borderLeftColor: renk }]}>
@@ -43,10 +49,9 @@ export default function App() {
         </View>
         {/* 2. İstatistik kartları */}
         <View style={styles.kartlar}>
-          <StatKarti deger="2.480" baslik="Puan" renk="#7c3aed" />
-          <StatKarti deger="63" baslik="Galibiyet" renk="#0ea5e9" />
-          <StatKarti deger="940" baslik="Altın" renk="#f59e0b" />
-          <StatKarti deger="17" baslik="Rozet" renk="#ec4899" />
+          {kartlar.map((k) => (
+              <StatKarti key={k.baslik} deger={k.deger} baslik={k.baslik} renk={k.renk} />
+          ))}
         </View>
         {/* 3. İlerleme çubuğu */}
         <IlerlemeCubugu seviye={7} yuzde={65} />
