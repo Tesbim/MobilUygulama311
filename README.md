@@ -13,11 +13,7 @@ React Native + Expo ile haftalık ders çalışmalarım.
 | 3 | Bileşen, JSX ve props | `hafta03-bilesenler` | ⏳ |
 | 4 | Temel bileşenler ve Flexbox | `hafta04-flexbox` | ⏳ |
 | Ek | Oyun Dashboard Paneli | `ek-oyun-dashboard` | ⏳ |
-| 5 | Durum yönetimi ve useState | `hafta05-state` | ⏳ |
 | 6 | Kullanıcı girdisi: TextInput, Pressable, olaylar | `hafta06-girdi` | ⏳ |
-| 7 | Listeler: FlatList, SectionList | `hafta07-listeler` | ⏳ |
-| 8 | Vize projesi | `vize-projesi` | ⏳ |
-| 9–14 | Dönem projesi | `donem-projesi` | ⏳ |
 
 ## Bir projeyi çalıştırma
 
