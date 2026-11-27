@@ -8,7 +8,7 @@ React Native + Expo ile haftalık ders çalışmalarım.
 
 | Hafta | Konu | Klasör | Durum |
 |---|---|---|---|
-| 1 | Mobil geliştirmeye giriş ve kurulum | `hafta01-ilk-proje` | ⏳ |
+| 1 | Mobil geliştirmeye giriş ve kurulum | `hafta01-ilk-proje` | ✅ |
 | 2 | React Native için JavaScript (ES6+) temelleri | `hafta02-js-temelleri` | ⏳ |
 | 3 | Bileşen, JSX ve props | `hafta03-bilesenler` | ⏳ |
 | 4 | Temel bileşenler ve Flexbox | `hafta04-flexbox` | ⏳ |
