@@ -28,10 +28,10 @@ export default function App() {
         </View>
         {/* 2. İstatistik kartları */}
         <View style={styles.kartlar}>
-          <StatKarti deger="1.250" baslik="Puan" renk="#2f6fed" />
-          <StatKarti deger="48" baslik="Galibiyet" renk="#22a06b" />
-          <StatKarti deger="320" baslik="Altın" renk="#e2a400" />
-          <StatKarti deger="12" baslik="Rozet" renk="#c9372c" />
+          <StatKarti deger="2.480" baslik="Puan" renk="#7c3aed" />
+          <StatKarti deger="63" baslik="Galibiyet" renk="#0ea5e9" />
+          <StatKarti deger="940" baslik="Altın" renk="#f59e0b" />
+          <StatKarti deger="17" baslik="Rozet" renk="#ec4899" />
         </View>
         {/* 3. İlerleme çubuğu */}
         <View style={styles.bolum}>
