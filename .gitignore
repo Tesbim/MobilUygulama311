@@ -1,0 +1,20 @@
+# Bağımlılıklar
+node_modules/
+
+# Expo
+.expo/
+.expo-shared/
+dist/
+web-build/
+
+# Loglar
+*.log
+npm-debug.*
+
+# Ortam / gizli dosyalar
+.env
+.env.local
+
+# İşletim sistemi
+.DS_Store
+Thumbs.db
