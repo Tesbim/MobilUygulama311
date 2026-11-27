@@ -1,4 +1,4 @@
 // Hangi uygulamayı görmek istiyorsan onun satırını aç, diğerini yorum yap
-import Uygulama from './uygulamalar/SavasEkrani';
+import Uygulama from './uygulamalar/KarakterFormu';
 
 export default Uygulama;
