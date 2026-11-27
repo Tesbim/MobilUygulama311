@@ -28,6 +28,16 @@ export default function App() {
           <StatKarti deger="320" baslik="Altın" renk="#e2a400" />
           <StatKarti deger="12" baslik="Rozet" renk="#c9372c" />
         </View>
+        {/* 3. İlerleme çubuğu */}
+        <View style={styles.bolum}>
+          <View style={styles.seviyeSatir}>
+            <Text style={styles.bolumBaslik}>Seviye 7</Text>
+            <Text style={styles.yuzde}>%65</Text>
+          </View>
+          <View style={styles.cubukDis}>
+            <View style={[styles.cubukIc, { width: '65%' }]} />
+          </View>
+        </View>
       </ScrollView>
   );
 }
@@ -49,4 +59,11 @@ const styles = StyleSheet.create({
   },
   kartDeger: { fontSize: 24, fontWeight: 'bold' },
   kartBaslik: { fontSize: 14, color: 'gray', marginTop: 4 },
+
+  bolum: { backgroundColor: 'white', padding: 16, borderRadius: 12, marginBottom: 12 },
+  seviyeSatir: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 },
+  bolumBaslik: { fontSize: 16, fontWeight: 'bold' },
+  yuzde: { fontSize: 16, color: '#2f6fed', fontWeight: 'bold' },
+  cubukDis: { height: 12, backgroundColor: '#e3e7f0', borderRadius: 6 },
+  cubukIc: { height: 12, backgroundColor: '#2f6fed', borderRadius: 6 },
 });
