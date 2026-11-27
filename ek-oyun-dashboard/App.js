@@ -14,6 +14,19 @@ function StatKarti({ deger, baslik, renk }) {
       </View>
   );
 }
+function IlerlemeCubugu({ seviye, yuzde }) {
+  return (
+      <View style={styles.bolum}>
+        <View style={styles.seviyeSatir}>
+          <Text style={styles.bolumBaslik}>Seviye {seviye}</Text>
+          <Text style={styles.yuzde}>%{yuzde}</Text>
+        </View>
+        <View style={styles.cubukDis}>
+          <View style={[styles.cubukIc, { width: `${yuzde}%` }]} />
+        </View>
+      </View>
+  );
+}
 export default function App() {
   return (
       <ScrollView style={styles.ekran}>
@@ -36,15 +49,7 @@ export default function App() {
           <StatKarti deger="17" baslik="Rozet" renk="#ec4899" />
         </View>
         {/* 3. İlerleme çubuğu */}
-        <View style={styles.bolum}>
-          <View style={styles.seviyeSatir}>
-            <Text style={styles.bolumBaslik}>Seviye 7</Text>
-            <Text style={styles.yuzde}>%65</Text>
-          </View>
-          <View style={styles.cubukDis}>
-            <View style={[styles.cubukIc, { width: '65%' }]} />
-          </View>
-        </View>
+        <IlerlemeCubugu seviye={7} yuzde={65} />
         {/* 4. Son etkinlikler */}
         <View style={styles.bolum}>
           <Text style={styles.bolumBaslik}>Son Etkinlikler</Text>
