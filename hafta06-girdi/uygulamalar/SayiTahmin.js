@@ -2,23 +2,21 @@ import { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, Pressable } from 'react-native';
 
 export default function SayiTahmin() {
-    // Gizli sayı (notta verilen satır)
     const [gizli, setGizli] = useState(Math.floor(Math.random() * 100) + 1);
     const [tahmin, setTahmin] = useState('');
     const [mesaj, setMesaj] = useState('1 ile 100 arasında bir sayı tuttum. Tahmin et!');
     const [deneme, setDeneme] = useState(0);
+    const [bildi, setBildi] = useState(false);
 
     function tahminEt() {
         const sayi = Number(tahmin);
 
-        // Geçersiz giriş: boş ya da 1–100 dışı
         if (tahmin.trim() === '' || isNaN(sayi) || sayi < 1 || sayi > 100) {
             setMesaj('⚠️ Lütfen 1 ile 100 arasında bir sayı yaz.');
             setTahmin('');
             return;
         }
 
-        // Kaçıncı tahmin
         const yeniDeneme = deneme + 1;
         setDeneme(yeniDeneme);
 
@@ -28,10 +26,19 @@ export default function SayiTahmin() {
             setMesaj(`${sayi} → Daha küçük! ⬇️`);
         } else {
             setMesaj(`🎉 Bildin! ${yeniDeneme}. tahminde buldun.`);
+            setBildi(true);
         }
 
-        // Her tahminden sonra kutuyu temizle
         setTahmin('');
+    }
+
+    // Bonus — yeni gizli sayı ve her şeyi sıfırla
+    function yenidenOyna() {
+        setGizli(Math.floor(Math.random() * 100) + 1);
+        setDeneme(0);
+        setBildi(false);
+        setTahmin('');
+        setMesaj('Yeni bir sayı tuttum. Tahmin et!');
     }
 
     return (
@@ -40,22 +47,32 @@ export default function SayiTahmin() {
             <Text style={styles.mesaj}>{mesaj}</Text>
             <Text style={styles.deneme}>Tahmin sayısı: {deneme}</Text>
 
-            <TextInput
-                value={tahmin}
-                onChangeText={setTahmin}
-                placeholder="Tahminin"
-                keyboardType="numeric"
-                maxLength={3}
-                onSubmitEditing={tahminEt}
-                style={styles.kutu}
-            />
-
-            <Pressable
-                onPress={tahminEt}
-                style={({ pressed }) => [styles.buton, pressed && { opacity: 0.7 }]}
-            >
-                <Text style={styles.butonYazi}>Tahmin Et</Text>
-            </Pressable>
+            {bildi ? (
+                <Pressable
+                    onPress={yenidenOyna}
+                    style={({ pressed }) => [styles.buton, styles.yenidenButon, pressed && { opacity: 0.7 }]}
+                >
+                    <Text style={styles.butonYazi}>🔄 Yeniden Oyna</Text>
+                </Pressable>
+            ) : (
+                <View>
+                    <TextInput
+                        value={tahmin}
+                        onChangeText={setTahmin}
+                        placeholder="Tahminin"
+                        keyboardType="numeric"
+                        maxLength={3}
+                        onSubmitEditing={tahminEt}
+                        style={styles.kutu}
+                    />
+                    <Pressable
+                        onPress={tahminEt}
+                        style={({ pressed }) => [styles.buton, pressed && { opacity: 0.7 }]}
+                    >
+                        <Text style={styles.butonYazi}>Tahmin Et</Text>
+                    </Pressable>
+                </View>
+            )}
         </View>
     );
 }
@@ -74,4 +91,5 @@ const styles = StyleSheet.create({
     },
     buton: { backgroundColor: '#2f6fed', padding: 16, borderRadius: 12, marginTop: 16 },
     butonYazi: { color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center' },
+    yenidenButon: { backgroundColor: '#22a06b' },
 });
